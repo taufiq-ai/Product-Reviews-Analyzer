@@ -1,0 +1,92 @@
+{% load static %}
+
+<!--LINK CSS for review.html-->
+<link rel="stylesheet" type='text/css' href="{% static '/css/review.css' %}">
+<!--END LINK CSS for review.html -->
+
+
+<!--NEW FORMS-->
+<div class="row">
+	
+	<div class="col-md-7">
+		<form action=" " method="post">
+					
+			<div class="card card-body">
+				<h5>Write a Single Review</h5>
+				<table class="table table-sm">
+
+					<tr>
+					<input type="text" placeholder="Enter Review" name="rname" >         
+					</tr>
+
+					<tr>
+					<button type="submit">Submit</button> <br><br>
+					</tr>
+
+				</table>
+			</div>
+		</form>
+	</div>
+	
+	
+	<div class="col-md-4">
+		<form action=" " method="post" enctype="multipart/form-data">
+			
+			<div class="card card-body">
+				<fieldset>
+					<legend><h5>Upload file</h5></legend>	
+				<table class="table table-sm">
+					<tr>
+					<br>
+					</tr>
+							
+					<tr>
+						
+						{% csrf_token %}
+        				{{ form.as_p }}
+					</tr>
+					<tr>
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</tr>		
+				</table>
+			</fieldset>
+			</div>
+		</form>
+	</div>
+	
+
+</div>
+
+<!--
+<div class="col-md-7">
+		<form action=" " method="post">
+			<h5>Write a Single Review</h5>		
+			<div class="card card-body">
+				<table class="table table-sm">
+
+					<tr>
+					<input type="text" placeholder="Enter Review" name="rname" >         
+					</tr>
+
+					<tr>
+					<button type="submit">Submit</button> <br><br>
+					</tr>
+
+				</table>
+			</div>
+		</form>
+	</div>
+
+
+	Part of Rownok 
+	<div class="container">
+    <form method="POST" enctype="multipart/form-data">
+      <fieldset>
+        <legend>Analysis</legend>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+</div>
+-->

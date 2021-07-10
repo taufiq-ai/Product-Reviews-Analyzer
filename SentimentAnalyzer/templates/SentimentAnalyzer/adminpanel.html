@@ -1,0 +1,66 @@
+{%  extends 'SentimentAnalyzer/main.html' %}
+
+{% block content %}
+
+{%  include 'SentimentAnalyzer/status.html' %}
+
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CLIENTS:</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Customer</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					<th>Client</th>
+					<th>Phone</th>
+				</tr>
+				{% for client in clients %}
+				<tr>
+					<!--Link of Dynamic URL-->
+					<td><a class ='btn btn-sm btn-info' href="{% url 'client' client.id %}">View</a>  </td>
+					<td>{{client.name}}</td>
+					<td>{{client.phone}}</td>
+				</tr>
+				{% endfor %}
+
+
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>LAST 5 ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href=" {% url 'createorder' %} ">Create Order</a>
+			<table class="table table-sm">
+				
+				<tr>
+					<th>File</th>
+					<th>Date Orderd</th>
+					<th>Status</th>
+					<th>Update</th>
+					<th>Remove</th>
+				</tr>
+				{% for order in orders %}
+				<tr>
+					<td>{{order.files.name}} </td>
+					<td>{{order.date_created}}</td>
+					<td>{{order.status}}</td>
+					<td><a class="btn btn-sm btn-info" href="#"> Update </a></td>
+					<td><a class="btn btn-sm btn-danger" href="#">Remove</a></td>
+				</tr>
+
+				{% endfor %}
+		
+			</table>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}

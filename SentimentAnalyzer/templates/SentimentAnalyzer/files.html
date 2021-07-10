@@ -1,0 +1,32 @@
+{%  extends 'SentimentAnalyzer/main.html' %}
+{% block content %}
+
+		<br>
+
+		<div class="row">
+			<div class="col-md">
+				<div class="card card-body">
+					<h5>Files</h5>
+				</div>
+				<div class="card card-body">
+					<table class="table">
+						<tr>
+							<th>File Name</th>
+							<th>File ID</th>
+							<th>Total Records</th>
+						</tr>
+						{% for file in files %}
+						<tr>
+							<td>{{file.name}}</td>
+							<td>{{file.id}}</td>
+							<td>{{ file.records}}</td>
+						</tr>
+						{% endfor %}
+						
+					</table>
+				</div>
+			</div>
+			
+		</div>
+
+{% endblock content %}

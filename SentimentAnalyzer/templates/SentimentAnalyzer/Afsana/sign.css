@@ -1,0 +1,30 @@
+
+body h1{
+    color:white;
+}
+body{
+    background-color: rgb(4,29,49);
+}
+#name{
+    width: 80%;
+    padding: 5px;
+    border-radius: 5%;
+    outline: 0;
+    border: 1px solid lightgray;
+}
+table{
+    background-color: rgb(8,48,80);
+    color: white;
+    border-collapse: collapse;
+    font-size: 16px;
+    font-family: serif;
+    padding: 5px;
+    border: 5px solid white;
+    text-align: -webkit-center;
+}
+button{
+    margin-left: 650px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}

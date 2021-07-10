@@ -1,0 +1,126 @@
+{%load static%}
+<!--LINK CSS for registration.html -->
+<link rel="stylesheet" type='text/css' href="{% static '/css/index.css' %}">
+<!--END LINK CSS for Registration.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+ <!---Bootstrap CSS link--->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <!---END Bootstrap CSS link--->
+        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>SentimentAnalyzer</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'home' %}">Sentiment Analyzer</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'review' %}">Analyze Review</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                        
+                        <!--Drop down list For Client-->
+                        {% if request.user.client %}
+                      <div class="dropdown">
+                          <li class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id='hello-msg'>{{request.user}}</span>
+                          </li>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item" href="{% url 'dashboard'%}">Dashboard</a></li>
+                              <li><a class="dropdown-item" href="{% url 'logout'%}">Logout</a></li>                         
+                            </div>
+                        </div>
+                      {% endif %}
+                    <!--END Drop down list For Client -->
+
+                    <!--ADMIN Drop down list-->
+                    {% if request.user.is_staff %}
+                    <div class="dropdown">
+                        <li class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Admin
+                        </li>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="{% url 'adminpanel'%}">Admin Panel</a>
+                          <a class="dropdown-item" href="{% url 'files'%}">File Storage</a>
+                          <a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Data Base</a>
+                        </div>
+                    </div>
+                    <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}">{{request.user}}(Logout)</a></li>
+
+                    {% endif %}
+                    <!-- END -->
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Header - set the background image for the header in the line below-->
+        <header class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/wfh8dDlNFOk/1600x900')">
+            <div class="text-center my-5">
+                <img class="img-fluid rounded-circle mb-4" src="https://dummyimage.com/150x150/6c757d/dee2e6.jpg" alt="..." />
+                <h1 class="text-white fs-3 fw-bolder"><!--Full Width Pics--></h1>
+                <p class="text-white-50 mb-0"><!--Landing Page Template--></p>
+            </div>
+        </header>
+        <!-- Content section-->
+        <section class="py-5">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h2>AI-Driven Sentiment Analysis with Media Monitoring </h2>
+                        <p class="lead">Explore what drives consumer sentiment by “at-a-glance” positive/neutral/negative analysis, and create your own categories for sub-topics like “Positive – Liked the Ad”, or “Negative – Cost”, and more. Learn from social posts, news, reviews, and benchmark against competitors</p>
+                        <p class="mb-0">Register today and find out how Brandwatch delivers instant insights about your brand, products, competitors, and trends in your market space.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image element - set the background image for the header in the line below-->
+        <div class="py-5 bg-image-full" style="background-image: url('https://source.unsplash.com/4ulffa6qoKA/1200x800')">
+            <!-- Put anything you want here! The spacer below with inline CSS is just for demo purposes!-->
+            <div style="height: 20rem"></div>
+        </div>
+        <!-- Content section-->
+        <section class="py-5">
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <h2>Our experts will:</h2>
+                        <li>Discuss your use cases and business needs.</li>
+                        <li>Give a hands-on demonstration of Brandwatch.</li>
+                        <li>Show how deep consumer insights can improve your existing goals.</li>                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="py-5 bg-dark">
+            <div class="container"><p class="m-0 text-left text-white">Contact; +8801811964562</p><p class="m-0 text-center text-white">Copyright &copy; Sentiment Analyzer 2021</p><p class="m-0 text-right text-white">Email: contact@sentimentanalyzer.com</p></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+
+<!--Bootstrap JS link-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--END Bootstrap JS link-->
+</html>

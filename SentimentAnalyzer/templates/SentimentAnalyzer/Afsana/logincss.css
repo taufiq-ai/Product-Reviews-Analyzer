@@ -1,0 +1,16 @@
+body{
+    background-image: url(bg.jpg);
+    background-size: cover;
+}
+.features{
+    margin-top: 263px;
+    margin-left: 513px;
+
+}
+.features button{
+    padding: 0.7rem 2rem;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+    opacity: 0.7;
+
+}

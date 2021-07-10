@@ -1,0 +1,68 @@
+{%load static%}
+<style>
+  .hello-msg{
+    font-size: 18px;
+    color: #fff;
+    margin-right: 5px;
+    margin-left: 20px;
+  }
+</style>
+
+<!--LINK CSS index.cssl -->
+<link rel="stylesheet" type='text/css' href="{% static '/css/index.css' %}">
+<!--END LINK CSS index.css -->
+
+
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
+          <div class="container">
+              <a class="navbar-brand" href="{% url 'home' %}">Sentiment Analyzer</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                      <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a></li>
+                      <li class="nav-item"><a class="nav-link" href="{% url 'review' %}">Analyze Review</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                      <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                      
+                      <!--User Drop down list For Client-->
+                      
+                      {% if request.user.client %}
+                      <div class="dropdown">
+                          <li class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id='hello-msg'>{{request.user}}</span>
+                          </li>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item" href="{% url 'dashboard'%}">Dashboard</a></li>
+                              <li><a class="dropdown-item" href="{% url 'logout'%}">Logout</a></li>                         
+                            </div>
+                        </div>
+                      {% endif %}
+                      
+
+                    <!--END User Drop down list For Client -->                      
+
+                      <!--ADMIN Drop down list-->
+                      {% if request.user.is_staff %}
+                        <div class="dropdown">
+                            <li class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Admin
+                            </li>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{% url 'adminpanel'%}">Admin Panel</a>
+                              <a class="dropdown-item" href="{% url 'files'%}">File Storage</a>
+                              <a class="dropdown-item" href="http://127.0.0.1:8000/admin/">Data Base</a>
+                            </div>
+                        </div>  
+                        <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}">{{request.user}}(Logout)</a></li>                    
+                      {% endif %}
+                      <!-- END -->
+
+                      
+
+                  </ul>
+              </div>
+          </div>
+      </nav>
+     
