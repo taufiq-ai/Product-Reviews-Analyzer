@@ -10,7 +10,8 @@ The basic approach was trying a different machine learning model and look for th
 To install dependencies
 1. go to the directory where requirements.txt is located.
 2. activate your virtualenv.
-3. run: pip install -r requirements.txt in your shell.
+3. run: ```pip install -r requirements.txt``` in your shell.
+We have used Python, Django, Html, CSS, Bootstrap, NLTK, and many more things....
 
 ## Future Work
 There is always a scope of improvement. Here are a few things which can be considered to improve.
@@ -22,3 +23,5 @@ Some other tuning parameters to improve the accuracy of the model.
 
 ## Conclusion
 The motive of the model is to correctly detect the sentiments of the textual reviews or feedback. The developed model has an accuracy of 84.00% and successfully detects the sentiments of the textual reviews or feedback. The model has been tested with few of the online reviews and was found that it detects the sentiments correctly. Thus, can conclude that the motive was successful and the model can be used to detect the sentiments of the reviews and feedback.
+
+Our team has followed Agile Methodology to develop the app. We have completed 82% of SDLC and 90% of Development phase. Further we will work on the deployment after completing rest tasks of development phase.
